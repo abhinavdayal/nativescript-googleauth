@@ -1,28 +1,31 @@
-import { Observable } from 'tns-core-modules/data/observable';
 import * as app from 'tns-core-modules/application';
 import * as dialogs from 'tns-core-modules/ui/dialogs';
 
-export class Common extends Observable {
-  public message: string;
+export class BooleanResult {
+  public status: boolean;
+  public error:any;
 
-  constructor() {
-    super();
-    this.message = Utils.SUCCESS_MSG();
-  }
-
-  public greet() {
-    return "Hello, NS";
+  constructor(status:boolean, error?:any) {
+    this.status = status;
+    if(error) {
+      this.error = error;
+    }
   }
 }
 
-export class Utils {
-  public static SUCCESS_MSG(): string {
-    let msg = `Your plugin is working on ${app.android ? 'Android' : 'iOS'}.`;
+export class LoginResult {
+    idToken?: string;
+    displayName?: string;
+    firstName?: string;
+    lastName?: string;
+    error?: any;
+    email?: string;
+    photoUrl?: string;;
+}
 
-    setTimeout(() => {
-      dialogs.alert(`${msg} For real. It's really working :)`).then(() => console.log(`Dialog closed.`));
-    }, 2000);
 
-    return msg;
-  }
+export abstract class GoogleAuthBase {
+  abstract init(serverClientId:string, logincallback: any, logoutcallback: any):BooleanResult;
+  abstract login():void;
+  abstract logout():void;
 }

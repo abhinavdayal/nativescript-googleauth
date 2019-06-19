@@ -15,3 +15,4 @@ export function onNavigatingTo(args: NavigatedData) {
 
     page.bindingContext = new HomeViewModel();
 }
+

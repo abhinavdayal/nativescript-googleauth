@@ -2,6 +2,9 @@
     <Label class="action-bar-title" text="Home"></Label>
 </ActionBar>
 
-<GridLayout class="page">
-    <!-- Add your page content here -->
-</GridLayout>
+ <StackLayout orientation="vertical" backgroundColor="lightgray">
+    <Button text="login" (tap)="login()"></Button>
+    <Label text="{{displayname}}"  backgroundColor="red"></Label>
+    <Label text="{{email}}" backgroundColor="green"></Label>
+    <Button text="logout" (tap)="logout()"></Button>
+  </StackLayout>

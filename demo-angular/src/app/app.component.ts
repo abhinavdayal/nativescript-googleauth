@@ -1,5 +1,3 @@
-import { GoogleAuth } from 'nativescript-google-auth';
-console.log(new GoogleAuth().message);
 import { Component } from "@angular/core";
 
 @Component({

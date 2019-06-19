@@ -1,5 +1,10 @@
-import { Common } from './google-auth.common';
-
-export class GoogleAuth extends Common {
+import { GoogleAuthBase, LoginResult, BooleanResult } from './google-auth.common';
+export declare class GoogleAuth extends GoogleAuthBase {
+    
+    init(serverClientId: string, logincallback: any, logoutcallback: any): BooleanResult;   
+    
+    login(): void;
+    
+    logout(): void;
 
 }
